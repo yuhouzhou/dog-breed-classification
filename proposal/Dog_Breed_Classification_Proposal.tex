@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+
+\begin{document}
+	\begin{center}
+    
+    	% MAKE SURE YOU TAKE OUT THE SQUARE BRACKETS
+    
+		\LARGE{\textbf{Capstone Proposal}} \\
+        \vspace{1em}
+        \Large{Dog Breed Classification} \\
+        \vspace{1em}
+        \normalsize\textbf{Yuhou Zhou} \\
+        \normalsize{zyh.germany@gmail.com} \\
+        \vspace{1em}
+        % \normalsize{Advisor: [Advisors Name]} \\
+        \vspace{1em}
+        % \normalsize{State University of New York Polytechnic Institute, Utica NY} \\
+        \normalsize{Machine Learning Engineer Nanodegree, Udacity}
+     
+	\end{center}
+    \begin{normalsize}
+    
+    	\section{Domain background:}
+        
+        Image classification is a long standing problem in computer vision. In recent years, convolutional neural network (CNN) becomes the most popular algorithm to tackle this problems, because its high accuracy and the increasing of computer power enabling to build deeper neural networks. In 2012, AlexNet marked the new era of CNN. Its performance greatly surpassed other manually featured neural networks in many benchmarks. Afterwards, models, such as ResNet, MobileNet, Inception, all drew great attention because of their exceptional performance.
+
+		\section{Problem statement:}
+        
+        This project aims to build a dog breed detector. When the input image is a dog, the detector returns the breed of the dog; when the input image is a human, the return should be human and give a dog breed which the human mostly looks like. If neither the cases, the detector should give a result indicating that neither of the are cases detected. 
+        
+	   	\section{Datasets and inputs:}
+        
+        The datasets are provided by Udacity. The dog image dataset includes 8351 images and is divided into training set (6680 images), validation set (835 images), and test set (836 images). All the directories are further divided into 133 sub-directories, corresponding to different dog breeds. The human image dataset contains 13233 human images.
+        
+    	\section{Solution statement:}
+        
+        There are many existing methods to solve image classification problems. We can try handcrafted models, pre-trained models, building a CNN from scratch, using transfer learning to fine tune many pre-trained models.
+        
+    	\section{Benchmark model:}
+        
+        The CNN model built from scratch must reach 10 percent accuracy rate. Thought the requirement seems low, considering the complex input space, the problem is not trivial.\\
+        The transfer learning based CNN have to reach 60\% accuracy rate.
+        
+        \section{Evaluation metrics:}
+        
+        Cross Entropy Loss is used by the optimizor to learn the feature, because the model output the classification by the probability of every class. \\
+        Top-1 accuracy rate is used to evaluate the model, because our app is to output the most likely breed to user. It is important the the correct class has the highest probability.
+        
+        \section{Project design:}
+        
+        \begin{itemize}
+        	\item Importing image datasets and inspect images. Dividing data into train, validation, and test sets.
+            \item Preprocessing images for models.
+            \item Detecting human face by OpenCV cascade classifier.
+            \item Detecting dog by pretrained VGG 16.
+            \item Building CNN from scratch to detect dog breeds. The accuracy should be at least 10 percent.
+            \item Utilizing transfer learning to build a CNN based on ResNet. The accuracy should be at least 60 percent.
+            \item Writing a function to detect human and dog breeds, wrapping up the dog detector and the human detector.
+        \end{itemize}
+        
+\end{normalsize}
+  
+\end{document}
